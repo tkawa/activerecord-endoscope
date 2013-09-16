@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
   scope :minor, -> {
     where(age: 0..19)
   }
+  scope :aged, ->(age) {
+    where(age: age)
+  }
   scope :have_no_email, -> {
     where(email: nil)
   }
@@ -36,18 +39,22 @@ u.admin?            # => false
 u.not_admin?        # => true
 u.admin_or_manager? # => false
 u.minor?            # => false
+u.aged?(20)         # => true
 u.has_no_email?     # => false
 u.has_email?        # => true
 ```
 
-With no SQL execution.
+**With NO SQL execution.**
 
 
 ## Restriction
 
 Limited queries have been supported yet.
 
-SQL literal such as `where('email IS NOT NULL')` is not supported
+SQL literal such as `where('email IS NOT NULL')` is not supported.
+
+Supported queries are shown in:
+https://github.com/tkawa/arel_ruby/blob/master/lib/arel/visitors/ruby.rb
 
 If your query is not supported, you can override the method manually.
 
