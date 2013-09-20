@@ -1,5 +1,8 @@
 # activerecord-endoscope
 
+[![Build Status](https://travis-ci.org/tkawa/activerecord-endoscope.png)](https://travis-ci.org/tkawa/activerecord-endoscope)
+[![Gem Version](https://badge.fury.io/rb/activerecord-endoscope.png)](http://badge.fury.io/rb/activerecord-endoscope)
+
 Endoscope enables scope to apply to model instance
 
 ## Example
